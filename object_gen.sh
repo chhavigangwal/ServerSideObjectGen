@@ -19,7 +19,7 @@ echo $fileName
 echo $tomcatHome
 echo $outputPath
 java -jar ./ServerSideObjectGen-0.0.1-jar-with-dependencies.jar $fileName $outputPath
-cp $outputPath/META-INF/persistence.xml $tomcatHome/webapps/KunderaJSRest/WEB-INF/classes/META-INF
+cp -r $outputPath/META-INF $tomcatHome/webapps/KunderaJSRest/WEB-INF/classes/
 cp $outputPath/dynamic-entity.jar $tomcatHome/webapps/KunderaJSRest/WEB-INF/lib
 $tomcatHome/bin/shutdown.sh
 $tomcatHome/bin/startup.sh
