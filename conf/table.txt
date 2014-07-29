@@ -1,0 +1,30 @@
+package packge ;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+import java.util.Set;
+import java.util.Date;
+import java.util.UUID;
+import org.bson.types.ObjectId;
+import javax.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+@Entity
+@Table(name = "table", schema = "kspace")
+@XmlRootElement
+public class Idbenchfamily
+{
+   
+    
+	 public Idbenchfamily()
+	    {
+	    
+	    }
+   
+    

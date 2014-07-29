@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+	http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+<!--PERSISTENCE_SAMPLE-->	
+
+<persistence-unit name="cassandraPU">
+		<provider>com.impetus.kundera.KunderaPersistence</provider>	
+		<properties>			
+			<property name="kundera.nodes" value="192.168.145.77"/>
+			<property name="kundera.port" value="9160"/>
+			<property name="kundera.keyspace" value="system"/>
+			<property name="kundera.dialect" value="cassandra"/>
+			<property name="kundera.client.property" value="KunderaConnection.xml" />
+			 <property name="kundera.client.lookup.class"
+				value="com.impetus.client.cassandra.thrift.ThriftClientFactory" />
+				
+		</properties>		
+	</persistence-unit>
+
+<persistence-unit name="mongodatabasePU">
+ 
+    <provider>com.impetus.kundera.KunderaPersistence</provider>
+    <properties>
+    <!-- <property name="kundera.nodes" value="192.168.145.77" /> -->
+        <!-- <property name="kundera.port" value="27017" /> -->
+        <property name="kundera.keyspace" value="idbench" />
+        <property name="kundera.dialect" value="mongodb" />
+        <property name="kundera.client.lookup.class" value="com.impetus.client.mongodb.MongoDBClientFactory" />
+     	
+    </properties>
+ </persistence-unit> 
+
+<persistence-unit name="%DATABASE_PU">
+<provider>com.impetus.kundera.KunderaPersistence</provider>	
+<!--<class>cassandraSampleClass</class>-->
+<!--<class>mongoSampleClass</class>-->
+<exclude-unlisted-classes>true</exclude-unlisted-classes>
+<properties>			
+<property name="kundera.nodes" value="%DATABASE_HOST"/>
+<property name="kundera.port" value="%DATABASE_PORT"/>
+<property name="kundera.keyspace" value="%KUNDERA_KEYSPACE"/>
+<property name="kundera.dialect" value="%KUNDERA_DIALECT"/>
+<property name="kundera.client.property" value="%CLIENT_PROPERTY"/>
+<property name="kundera.client.lookup.class" value="%LOOKUP_CLASS"/>
+</properties>		
+</persistence-unit>
+
+</persistence>

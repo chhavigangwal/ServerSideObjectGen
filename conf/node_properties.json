@@ -1,0 +1,20 @@
+{"properties" : [{
+	"DATA_STORE":"cassandra",
+	"HOST":"172.25.41.54",
+	"PORT":"9160",
+	"database":["idbench","idbench1"],	
+	"packageName":"cassandranode",	
+	"setSchema":"true",
+	"entities": [],
+	"OUTPUT_PACKAGE": "/ilabs/data/polyglot/"
+},
+{
+	"DATA_STORE":"mongodb",
+	"HOST":"172.25.41.54",
+	"PORT":"10000",
+	"database":["idbench"],	
+	"packageName":"mongonode",
+	"setSchema":"true",	
+	"entities": [],
+	"OUTPUT_PACKAGE": "/ilabs/data/polyglot/"
+}]}
