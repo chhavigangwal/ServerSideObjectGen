@@ -5,6 +5,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.util.Set;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
  import com.fasterxml.jackson.annotation.JsonProperty;
 @Embeddable

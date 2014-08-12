@@ -4,7 +4,6 @@
 	"PORT":"9160",
 	"database":"idbench",	
 	"packageName":"node",
-	""	
 	"entities": [{"table" : "user", "className" : "User", "isRelationship" : "true", "relationshipType" : "OneToMany", "attributeName" : "user_id", "relationshipTable" : "tweets",
 				 "relationshipClass" : "Tweets" , "relationshipDATA_STORE" : "mongodb" , "relationshipHost" : "172.25.41.54", "relationshipPort" : "10000" },{"table" : "employee", "className" : "Employee", 
 				 "isRelationship" : "false", "relationshipType" : "", "attributeName" : "", "relationshipTable" : "",
