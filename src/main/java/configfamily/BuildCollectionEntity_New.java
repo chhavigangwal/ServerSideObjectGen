@@ -441,9 +441,16 @@ public class BuildCollectionEntity_New
 
             List<String> ls = new ArrayList<String>();
             //String HOME = System.getProperty("user.dir");
-
-            ls.add("sh");
-            ls.add(CLASSES_PATH + "/conf/create_jar.sh");
+            String javaHome = System.getenv("JAVA_HOME");
+            //ls.add("sh");
+            //ls.add(CLASSES_PATH + "/conf/create_jar.sh");
+            ls.add(javaHome + "/bin/jar");
+            ls.add("cvf");
+            if(DATA_STORE == "mongodb") {
+               ls.add("dynamic-mongodb-entity.jar");
+            } else if(DATA_STORE == "cassandra") {
+               ls.add("dynamic-cassandra-entity.jar");
+            }
             ls.add(CLASSES_OUTPUT);
             ls.add(packageName.split("\\.")[0]);
             ls.add(DATA_STORE);
