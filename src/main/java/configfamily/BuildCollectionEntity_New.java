@@ -385,7 +385,10 @@ public class BuildCollectionEntity_New
             }
             else
             {
-                String CLASSES_PATH = System.getProperty("user.dir");
+                //String CLASSES_PATH = System.getProperty("user.dir");
+                String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+                String path = classPath.substring(0, classPath.indexOf("/src"));
+                String CLASSES_PATH = path;
 
                 File file = new File(CLASSES_PATH + "/conf/persistence.txt");
                 BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -427,9 +430,13 @@ public class BuildCollectionEntity_New
         try
         {
 
-            String CLASSES_PATH = System.getProperty("user.dir");
+            //String CLASSES_PATH = System.getProperty("user.dir");
+            String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+            String path = classPath.substring(0, classPath.indexOf("/src"));
+            String CLASSES_PATH = path;
+
             List<String> ls = new ArrayList<String>();
-            String HOME = System.getProperty("user.dir");
+            //String HOME = System.getProperty("user.dir");
 
             ls.add("sh");
             ls.add(CLASSES_PATH + "/conf/create_jar.sh");

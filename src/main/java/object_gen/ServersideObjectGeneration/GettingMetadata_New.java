@@ -22,6 +22,7 @@ import code.ColumnfamilyColumns;
 
 import com.google.common.base.CharMatcher;
 
+
 //import configfamily.BuildCollectionEntity_New;
 import configfamily.BuildCollectionEntity_New;
 import configfamily.BuildSubDocEntity_New;
@@ -301,7 +302,10 @@ public class GettingMetadata_New
                 JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
                 StandardJavaFileManager sjfm = compiler.getStandardFileManager(null, null, null);
                 // String classpath=System.getProperty("java.class.path");
-                System.out.println("current path " + System.getProperty("user.dir"));
+                String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+                String path = classPath.substring(0, classPath.indexOf("/src"));
+                
+                System.out.println("current path " + path);
                 String testpath = ":" + CLASSES_PATH + "/lib/persistence-api-2.0.jar";
                 testpath = testpath + ":" + CLASSES_PATH + "/lib/jackson-annotations-2.4.1.jar";
 

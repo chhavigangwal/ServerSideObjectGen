@@ -369,7 +369,10 @@ public class Entityclass_New
             }
             else
             {
-                String CLASSES_PATH = System.getProperty("user.dir");
+                //String CLASSES_PATH = System.getProperty("user.dir");
+                String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+                String path = classPath.substring(0, classPath.indexOf("/src"));
+                String CLASSES_PATH = path;
 
                 File file = new File(CLASSES_PATH + "/conf/persistence.txt");
                 BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -411,7 +414,12 @@ public class Entityclass_New
         try
         {
 
-            String CLASSES_PATH = System.getProperty("user.dir");
+            //String CLASSES_PATH = System.getProperty("user.dir");
+            String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+            String path = classPath.substring(0, classPath.indexOf("/src"));
+            String CLASSES_PATH = path;
+
+            
             List<String> ls = new ArrayList<String>();
 
             ls.add("sh");
