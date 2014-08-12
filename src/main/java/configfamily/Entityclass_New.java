@@ -426,22 +426,16 @@ public class Entityclass_New
             
             List<String> ls = new ArrayList<String>();
 
-            //ls.add("sh");
-            //ls.add(CLASSES_PATH + "/conf/create_jar.sh");
             String javaHome = System.getenv("JAVA_HOME");
-            //ls.add("sh");
-            //ls.add(CLASSES_PATH + "/conf/create_jar.sh");
             ls.add(javaHome + "/bin/jar");
             ls.add("cvf");
-            if(DATA_STORE == "mongodb") {
-               ls.add("dynamic-mongodb-entity.jar");
-            } else if(DATA_STORE == "cassandra") {
-               ls.add("dynamic-cassandra-entity.jar");
+            if(DATA_STORE.equals("mongodb")) {
+               ls.add(CLASSES_OUTPUT+"/dynamic-mongodb-entity.jar");
+            } else if(DATA_STORE.equals("cassandra")) {
+               ls.add(CLASSES_OUTPUT+"/dynamic-cassandra-entity.jar");
             }
-            ls.add(CLASSES_OUTPUT);
-            ls.add(CLASSES_OUTPUT);
-            ls.add(packageName.split("\\.")[0]);
-            ls.add(DATA_STORE);
+          
+            ls.add(CLASSES_OUTPUT+"/"+packageName.split("\\.")[0]);
 
             ProcessBuilder pb = new ProcessBuilder(ls);
             pb.redirectErrorStream();
