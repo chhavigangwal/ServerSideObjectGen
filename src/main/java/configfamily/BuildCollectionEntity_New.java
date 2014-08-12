@@ -387,7 +387,9 @@ public class BuildCollectionEntity_New
             {
                 //String CLASSES_PATH = System.getProperty("user.dir");
                 String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
-                String path = classPath.substring(0, classPath.indexOf("/src"));
+                int endIndex = classPath.indexOf("/src") != -1 ? classPath.indexOf("/src") : classPath
+                                    .indexOf("/ServerSideObjectGen-0.0.1-jar-with-dependencies.jar");
+                String path = classPath.substring(0, endIndex);
                 String CLASSES_PATH = path;
 
                 File file = new File(CLASSES_PATH + "/conf/persistence.txt");
@@ -432,7 +434,9 @@ public class BuildCollectionEntity_New
 
             //String CLASSES_PATH = System.getProperty("user.dir");
             String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
-            String path = classPath.substring(0, classPath.indexOf("/src"));
+            int endIndex = classPath.indexOf("/src") != -1 ? classPath.indexOf("/src") : classPath
+                .indexOf("/ServerSideObjectGen-0.0.1-jar-with-dependencies.jar");
+            String path = classPath.substring(0, endIndex);
             String CLASSES_PATH = path;
 
             List<String> ls = new ArrayList<String>();
