@@ -32,7 +32,10 @@ public class DynamicObjectGeneration
             String relationshipTable, String relationshipClass, String relationshipDATA_STORE, String relationshipHost,
             String relationshipPort, String relationshipPackage, String OUTPUT_PACKAGE)
     {
-        String CLASSES_PATH = System.getProperty("user.dir");
+        //String CLASSES_PATH = System.getProperty("user.dir");
+         String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+         String path = classPath.substring(0, classPath.indexOf("/src"));
+         String CLASSES_PATH = path;
 
         File node = new File(CLASSES_PATH);
         if (!node.exists())
@@ -130,8 +133,10 @@ public class DynamicObjectGeneration
     {
         try
         {
-            String CLASSES_PATH = System.getProperty("user.dir");
-
+           // String CLASSES_PATH = System.getProperty("user.dir");
+            String classPath =this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+            String path = classPath.substring(0, classPath.indexOf("/src"));
+String CLASSES_PATH = path;
             File node = new File(CLASSES_PATH);
             if (!node.exists())
             {
